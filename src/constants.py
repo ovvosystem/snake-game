@@ -1,0 +1,3 @@
+WIDTH, HEIGHT = 800, 800
+TILE = (32, 32)
+FPS = 60

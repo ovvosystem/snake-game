@@ -1,14 +1,16 @@
 import pygame as pg
 import os
+from src.constants import *
 
-WIDTH, HEIGHT = 800, 800
 WIN = pg.display.set_mode((WIDTH, HEIGHT))
-FPS = 60
 pg.display.set_caption("SNAKE GAME")
 
+# Assets
 BACKGROUND = (0, 0, 0)
 SNAKE_BODY_IMAGE = pg.image.load(os.path.join('assets', 'snake_body.png'))
-SNAKE_BODY = pg.transform.scale(SNAKE_BODY_IMAGE, (32, 32))
+SNAKE_BODY = pg.transform.scale(SNAKE_BODY_IMAGE, TILE)
+SNAKE_HEAD_IMAGE = pg.image.load(os.path.join('assets', 'snake_head.png'))
+SNAKE_HEAD = pg.transform.scale(SNAKE_HEAD_IMAGE, TILE)
 
 def main():
     clock = pg.time.Clock()
