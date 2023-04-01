@@ -12,3 +12,15 @@ class Snake():
                          [WIDTH_TILES // 2, HEIGHT_TILES // 2 + 1],
                          [WIDTH_TILES // 2, HEIGHT_TILES // 2 + 2]]
         self.direction = UP
+    
+    def change_direction(self, key):
+        if key == pg.K_UP and self.direction != DOWN:
+            self.direction = UP
+        if key == pg.K_DOWN and self.direction != UP:
+            self.direction = DOWN
+        if key == pg.K_LEFT and self.direction != RIGHT:
+            self.direction = LEFT
+        if key == pg.K_RIGHT and self.direction != LEFT:
+            self.direction = RIGHT
+
+    def move(self):
