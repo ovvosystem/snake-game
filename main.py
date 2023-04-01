@@ -6,7 +6,6 @@ WIN = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("SNAKE GAME")
 
 # Assets
-BACKGROUND = (0, 0, 0)
 SNAKE_BODY_IMAGE = pg.image.load(os.path.join('assets', 'snake_body.png'))
 SNAKE_BODY = pg.transform.scale(SNAKE_BODY_IMAGE, TILE)
 SNAKE_HEAD_IMAGE = pg.image.load(os.path.join('assets', 'snake_head.png'))
