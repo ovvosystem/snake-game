@@ -5,7 +5,7 @@ WIDTH_TILES = WIDTH // TILE[0]
 HEIGHT_TILES = HEIGHT // TILE[1]
 
 # Game time
-FPS = 60
+FPS = 5
 
 # Movement Directions
 UP = [0, -1]
