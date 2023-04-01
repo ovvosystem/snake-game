@@ -1,6 +1,6 @@
 import pygame as pg
 import os
-from src.constants import *
+from constants import *
 
 class Snake():
     def __init__(self):
@@ -24,3 +24,6 @@ class Snake():
             self.direction = RIGHT
 
     def move(self):
+        self.sections.insert(0, [self.sections[0][0] + self.direction[0],
+                                 self.sections[0][1] + self.direction[1]])
+        self.sections.pop(-1)
