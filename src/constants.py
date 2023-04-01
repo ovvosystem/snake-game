@@ -1,3 +1,11 @@
+# Proportions
 WIDTH, HEIGHT = 800, 800
 TILE = (32, 32)
+TILE_WIDTH = WIDTH // TILE[0]
+TILE_HEIGHT = HEIGHT // TILE[1]
+
+# Game time
 FPS = 60
+
+# Colors
+BACKGROUND = (0, 0, 0)
