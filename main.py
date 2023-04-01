@@ -1,33 +1,31 @@
 import pygame as pg
 import os
 from src.constants import *
+from src.snake import Snake
 
 WIN = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("SNAKE GAME")
 
-# Assets
-SNAKE_BODY_IMAGE = pg.image.load(os.path.join('assets', 'snake_body.png'))
-SNAKE_BODY = pg.transform.scale(SNAKE_BODY_IMAGE, TILE)
-SNAKE_HEAD_IMAGE = pg.image.load(os.path.join('assets', 'snake_head.png'))
-SNAKE_HEAD = pg.transform.scale(SNAKE_HEAD_IMAGE, TILE)
-
 def main():
     clock = pg.time.Clock()
+    snake = Snake()
     running = True
+
     while running:
-        clock.tick(FPS)
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 running = False
 
-        draw_window()
+            elif event.type == pg.KEYDOWN:
+                snake.change_direction(event.key)
+
+        clock.tick(FPS)
+        WIN.fill(BACKGROUND)
+        snake.draw_snake(WIN)
+        snake.move()
+        pg.display.update()
 
     pg.quit()
-
-def draw_window():
-    WIN.fill(BACKGROUND)
-    WIN.blit(SNAKE_BODY, ((WIDTH/2) - 16, (HEIGHT/2) - 16))
-    pg.display.update()
 
 if __name__ == "__main__":
     main()
