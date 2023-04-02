@@ -43,3 +43,20 @@ class Snake():
         window.blit(self.head, (self.sections[0][0] * TILE[0], self.sections[0][1] * TILE[1]))
         for section in self.sections[1:]:
             window.blit(self.body, (section[0] * TILE[0], section[1] * TILE[1]))
+
+    def isGameover(self):
+        def hit_wall():
+            if self.sections[0][0] < 0 or self.sections[0][0] >= WIDTH_TILES:
+                return True
+            elif self.sections[0][1] < 0 or self.sections[0][1] >= HEIGHT_TILES:
+                return True
+            else:
+                return False
+        
+        def hit_self():
+            for section in self.sections[1:]:
+                if self.sections[0] == section:
+                    return True
+            return False
+        
+        return hit_wall() or hit_self()

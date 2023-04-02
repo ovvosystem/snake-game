@@ -18,6 +18,9 @@ def main():
 
             elif event.type == pg.KEYDOWN:
                 snake.change_direction(event.key)
+        
+        if snake.isGameover():
+            running = False
 
         clock.tick(FPS)
         WIN.fill(BACKGROUND)
