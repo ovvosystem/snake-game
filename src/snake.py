@@ -5,10 +5,10 @@ from src.constants import *
 class Snake():
     def __init__(self):
         # Load snake assets
-        self.head = pg.image.load(os.path.join("assets", "snake_head.png"))
-        self.head = pg.transform.scale(self.head, TILE)
-        self.body = pg.image.load(os.path.join("assets", "snake_body.png"))
-        self.body = pg.transform.scale(self.body, TILE)
+        self.head_image = pg.transform.scale(pg.image.load(os.path.join("assets", "snake_head.png")), TILE)
+        self.head = self.head_image
+        self.body_image = pg.transform.scale(pg.image.load(os.path.join("assets", "snake_body.png")), TILE)
+        self.body = self.body_image
         # Sections that compose the snake
         self.sections = [[WIDTH_TILES // 2, HEIGHT_TILES // 2],
                          [WIDTH_TILES // 2, HEIGHT_TILES // 2 + 1],
@@ -20,12 +20,16 @@ class Snake():
         # Change direction if not moving on opposite direction
         if key == pg.K_UP and self.direction != DOWN:
             self.new_direction = UP
+            self.head = pg.transform.rotate(self.head_image, 0)
         if key == pg.K_DOWN and self.direction != UP:
             self.new_direction = DOWN
+            self.head = pg.transform.rotate(self.head_image, 180)
         if key == pg.K_LEFT and self.direction != RIGHT:
             self.new_direction = LEFT
+            self.head = pg.transform.rotate(self.head_image, 90)
         if key == pg.K_RIGHT and self.direction != LEFT:
             self.new_direction = RIGHT
+            self.head = pg.transform.rotate(self.head_image, 270)
 
     def move(self):
         # Move snake in current direction
