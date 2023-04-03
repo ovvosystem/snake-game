@@ -10,6 +10,7 @@ class Food():
     
     def set_position(self, snake):
         # Set food's position on the screen
+        self.position = [randrange(0, WIDTH_TILES - 1), randrange(0, HEIGHT_TILES - 1)]
         while self.position in snake.sections:
             self.position = [randrange(0, WIDTH_TILES - 1), randrange(0, HEIGHT_TILES - 1)]
 
