@@ -3,7 +3,6 @@ import os
 from src.constants import *
 from src.snake import Snake
 
-WIN = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("SNAKE GAME")
 
 def main():
