@@ -44,6 +44,10 @@ class Snake():
         for section in self.sections[1:]:
             window.blit(self.body, (section[0] * TILE[0], section[1] * TILE[1]))
 
+    def eat(self):
+        # Grow snake another section
+        self.sections.append(self.sections[-1])
+
     def isGameover(self):
         def hit_wall():
             if self.sections[0][0] < 0 or self.sections[0][0] >= WIDTH_TILES:
