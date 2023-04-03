@@ -12,3 +12,7 @@ class Food():
         # Set food's position on the screen
         while self.position in snake.sections:
             self.position = [randrange(0, WIDTH_TILES - 1), randrange(0, HEIGHT_TILES - 1)]
+
+    def draw_food(self, window):
+        # Draw food in window
+        window.blit(self.food_image, (self.position[0] * TILE[0], self.position[1] * TILE[1]))
