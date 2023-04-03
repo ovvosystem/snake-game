@@ -2,12 +2,15 @@ import pygame as pg
 import os
 from src.constants import *
 from src.snake import Snake
+from src.food import Food
 
 pg.display.set_caption("SNAKE GAME")
 
 def main():
     clock = pg.time.Clock()
     snake = Snake()
+    food = Food()
+    food.set_position(snake)
     running = True
 
     while running:
@@ -20,10 +23,15 @@ def main():
         
         if snake.isGameover():
             running = False
+        
+        if snake.sections[0] == food.position:
+            snake.eat()
+            food.set_position(snake)
 
         clock.tick(FPS)
         WIN.fill(BACKGROUND)
         snake.draw_snake(WIN)
+        food.draw_food(WIN)
         snake.move()
         pg.display.update()
 
