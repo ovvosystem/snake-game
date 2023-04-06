@@ -5,7 +5,9 @@ from src.constants import *
 
 class Food():
     def __init__(self):
+        # Load food asset
         self.food_image = pg.transform.scale(pg.image.load(os.path.join("assets", "food.png")), TILE)
+        # Food position in window
         self.position = []
     
     def set_position(self, snake):
