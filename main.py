@@ -1,5 +1,4 @@
 import pygame as pg
-import os
 from src.constants import *
 from src.snake import Snake
 from src.food import Food
