@@ -49,6 +49,9 @@ class Snake():
         self.sections.append(self.sections[-1])
 
     def isGameover(self):
+        # Check for game over conditions
+
+        # Check if snake hit window border
         def hit_wall():
             if self.sections[0][0] < 0 or self.sections[0][0] >= WIDTH_TILES:
                 return True
@@ -57,6 +60,7 @@ class Snake():
             else:
                 return False
         
+        # Check if snake hit itself
         def hit_self():
             for section in self.sections[1:]:
                 if self.sections[0] == section:
